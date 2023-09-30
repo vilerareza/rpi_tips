@@ -38,7 +38,7 @@ def main(shutdown_btn, t_interval=1, t_shutdown=3):
         if GPIO.input(shutdown_btn) == False:
             # Button is pressed. Initialize the time counter
             time_count = 0
-
+            print ('pressed', time_count)
             while GPIO.input(shutdown_btn) == False:
                 # Start counting the press time
                 time.sleep(t_interval)

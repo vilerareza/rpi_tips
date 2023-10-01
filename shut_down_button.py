@@ -8,7 +8,7 @@ shutdown_btn = 27
 # Button state monitor interval (set every 1 second to avoid intense loop)
 t_interval = 1
 # Counter to be considered as shutdown (set to 3 seconds)
-t_shutdown = 3
+t_shutdown = 2
 
 # Setting the GPIO
 GPIO.setwarnings(False)
@@ -28,7 +28,7 @@ def shutdown_reboot(action_name, command):
     subprocess.run(command)
 
 
-def main(shutdown_btn, t_interval=1, t_shutdown=3):
+def main(shutdown_btn, t_interval, t_shutdown):
     
     while True:
 
@@ -38,7 +38,6 @@ def main(shutdown_btn, t_interval=1, t_shutdown=3):
         if GPIO.input(shutdown_btn) == False:
             # Button is pressed. Initialize the time counter
             time_count = 0
-            print ('pressed', time_count)
             while GPIO.input(shutdown_btn) == False:
                 # Start counting the press time
                 time.sleep(t_interval)

@@ -13,7 +13,7 @@ t_shutdown = 3
 # Setting the GPIO
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(shutdown_btn, GPIO.IN)
+GPIO.setup(shutdown_btn, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 # Command for shutdown
 shutdown_cmd = ['sudo', 'shutdown', '-h', 'now']

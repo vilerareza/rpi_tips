@@ -6,11 +6,11 @@ import RPi.GPIO as GPIO
 # Specify the GPIO Pin where the shut down button is connected to
 shutdown_btn = 27
 # Button state monitor interval (set every 1 second to avoid intense loop)
-t_interval = 1
+t_interval = 0.5
 # Counter to be considered as shutdown (set to 3 seconds)
 t_shutdown = 2
 
-# Setting the GPIO
+# Setting the GPIO as input will internal Pull-Up
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(shutdown_btn, GPIO.IN, pull_up_down=GPIO.PUD_UP)
